@@ -16,26 +16,39 @@ export default function Posts() {
 }
 
 function PostIndividual(props) {
-
+    const numeroDeCurtidas = props.numCurtidas.replace(".","");
+    let NovoNumeroDeCurtidas = Number(numeroDeCurtidas)
     const [salvar, setSalvar] = useState("bookmark-outline");
     const [cor, setCor] = useState("null");
+    const [curtida, setCurtida] = useState("heart-outline");
+    const [quantCurtidas, setQuantCurtidas]= useState(props.numCurtidas)
     function salvarPost() {
         setSalvar(salvar === "bookmark-outline" ? "bookmark" : "bookmark-outline");
     }
   
-    const [curtida, setCurtida] = useState("heart-outline");
     function curtir() {
         setCurtida(curtida === "heart-outline" ? "heart" : "heart-outline");
         if(curtida === "heart-outline"){
             setCor("vermelho");
+            ++NovoNumeroDeCurtidas
+            setQuantCurtidas(formataCurtidas(NovoNumeroDeCurtidas));
         }
         else{
             setCor("null");
-            
+            setQuantCurtidas(formataCurtidas(NovoNumeroDeCurtidas));
+        }  
+    }
+    function curtirImg(){
+        if(curtida === "heart-outline"){
+            setCurtida("heart");
+            setCor("vermelho");
+            ++NovoNumeroDeCurtidas
+            setQuantCurtidas(formataCurtidas(NovoNumeroDeCurtidas));
         }
-        
-        
-        
+    }
+
+    function formataCurtidas(valor) {
+        return valor.toLocaleString('pt-BR');
     }
 
     return (
@@ -51,7 +64,7 @@ function PostIndividual(props) {
             </div>
 
             <div class="conteudo">
-                <img data-test="post-image" src={props.imgPost} alt={props.altPost} />
+                <img onClick={curtirImg} data-test="post-image" src={props.imgPost} alt={props.altPost} />
             </div>
 
             <div class="fundo">
@@ -69,7 +82,7 @@ function PostIndividual(props) {
                 <div class="curtidas">
                     <img src={props.imgCurtidoPor} alt={props.nomeCurtidoPor} />
                     <div class="texto">
-                        Curtido por <strong>{props.nomeCurtidoPor}</strong> e <strong>outras <span data-test="likes-number" >{props.numCurtidas}</span> pessoas</strong>
+                        Curtido por <strong>{props.nomeCurtidoPor}</strong> e <strong>outras <span data-test="likes-number" >{quantCurtidas}</span> pessoas</strong>
                     </div>
                 </div>
             </div>
