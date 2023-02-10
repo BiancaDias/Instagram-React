@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 export default function Posts() {
 
     const ArrayDePosts = [
@@ -15,26 +16,26 @@ export default function Posts() {
 }
 
 function PostIndividual(props) {
-    //função para alterar como salvo o arquivo
-    //tem que ficar dentro dasfunções?
-    const [salvar, setSalvar] = useState("bookmark-outline")
+
+    const [salvar, setSalvar] = useState("bookmark-outline");
+    const [cor, setCor] = useState("null");
     function salvarPost() {
         setSalvar(salvar === "bookmark-outline" ? "bookmark" : "bookmark-outline");
     }
-
+  
     const [curtida, setCurtida] = useState("heart-outline");
     function curtir() {
         setCurtida(curtida === "heart-outline" ? "heart" : "heart-outline");
-        //ta selecionando o primeiro da classe
-        const coracao = document.querySelector(".botao-curtir")
-        if (curtida === "heart") {
-            coracao.classList.add("vermelho");
+        if(curtida === "heart-outline"){
+            setCor("vermelho");
         }
-        if (curtida === "heart-outline") {
-            if (coracao.classList.contains("vermelho")) {
-                coracao.classList.remove("vermelho");
-            }
+        else{
+            setCor("null");
+            
         }
+        
+        
+        
     }
 
     return (
@@ -56,7 +57,7 @@ function PostIndividual(props) {
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon class="botao-curtir" onClick={curtir} data-test="like-post" name={curtida}></ion-icon>
+                        <ion-icon class={cor} onClick={curtir} data-test="like-post" name={curtida}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
@@ -68,7 +69,7 @@ function PostIndividual(props) {
                 <div class="curtidas">
                     <img src={props.imgCurtidoPor} alt={props.nomeCurtidoPor} />
                     <div class="texto">
-                        Curtido por <strong>{props.nomeCurtidoPor}</strong> e <strong>outras <span data-test="like-number" >{props.numCurtidas}</span> pessoas</strong>
+                        Curtido por <strong>{props.nomeCurtidoPor}</strong> e <strong>outras <span data-test="likes-number" >{props.numCurtidas}</span> pessoas</strong>
                     </div>
                 </div>
             </div>
