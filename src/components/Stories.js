@@ -9,7 +9,7 @@ export default function Stories() {
         { imagem: "assets/img/respondeai.svg", alt: "respondeai", usuario: "respondeai" },
         { imagem: "assets/img/filomoderna.svg", alt: "filomoderna", usuario: "filomoderna" },
         { imagem: "assets/img/memeriagourmet.svg", alt: "memeriagourmet", usuario: "memeriagourmet" }
-    ]
+    ];
     return (
         <div class="stories">
 
@@ -19,7 +19,7 @@ export default function Stories() {
                 <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>
         </div>
-    )
+    );
 }
 
 function StorieIndividual(props) {
@@ -32,5 +32,5 @@ function StorieIndividual(props) {
                 {props.usuario}
             </div>
         </div>
-    )
+    );
 }

@@ -6,13 +6,13 @@ export default function Posts() {
         { imgUsuario: "assets/img/meowed.svg", usuario: "meowed", imgPost: "assets/img/gato-telefone.svg", altPost: "gato-telefone", imgCurtidoPor: "assets/img/respondeai.svg", nomeCurtidoPor: "respondeai", numCurtidas: "101.523" },
         { imgUsuario: "assets/img/barked.svg", usuario: "barked", imgPost: "assets/img/dog.svg", altPost: "dog", imgCurtidoPor: "assets/img/adorable_animals.svg", nomeCurtidoPor: "adorable_animals", numCurtidas: "99.159" },
         { imgUsuario: "assets/img/charlie.jpg", usuario: "Peanuts", imgPost: "assets/img/tirinha1.jpg", altPost: "tirinha-Peanuts", imgCurtidoPor: "assets/img/sabado-qualquer.jpg", nomeCurtidoPor: "umsabadoqualquer", numCurtidas: "98.105" }
-    ]
+    ];
     return (
 
         <div class="posts">
             {ArrayDePosts.map((p) => <PostIndividual imgUsuario={p.imgUsuario} usuario={p.usuario} imgPost = {p.imgPost} altPost = {p.altPost} imgCurtidoPor = {p.imgCurtidoPor} nomeCurtidoPor = {p.nomeCurtidoPor} numCurtidas= {p.numCurtidas} />)}
         </div>
-    )
+    );
 }
 
 function PostIndividual(props) {
@@ -21,7 +21,7 @@ function PostIndividual(props) {
     const [salvar, setSalvar] = useState("bookmark-outline");
     const [cor, setCor] = useState("null");
     const [curtida, setCurtida] = useState("heart-outline");
-    const [quantCurtidas, setQuantCurtidas]= useState(props.numCurtidas)
+    const [quantCurtidas, setQuantCurtidas]= useState(props.numCurtidas);
     function salvarPost() {
         setSalvar(salvar === "bookmark-outline" ? "bookmark" : "bookmark-outline");
     }
@@ -30,7 +30,7 @@ function PostIndividual(props) {
         setCurtida(curtida === "heart-outline" ? "heart" : "heart-outline");
         if(curtida === "heart-outline"){
             setCor("vermelho");
-            ++NovoNumeroDeCurtidas
+            ++NovoNumeroDeCurtidas;
             setQuantCurtidas(formataCurtidas(NovoNumeroDeCurtidas));
         }
         else{
@@ -42,7 +42,7 @@ function PostIndividual(props) {
         if(curtida === "heart-outline"){
             setCurtida("heart");
             setCor("vermelho");
-            ++NovoNumeroDeCurtidas
+            ++NovoNumeroDeCurtidas;
             setQuantCurtidas(formataCurtidas(NovoNumeroDeCurtidas));
         }
     }
@@ -88,6 +88,6 @@ function PostIndividual(props) {
             </div>
         </div>
 
-    )
+    );
 }
 

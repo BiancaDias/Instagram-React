@@ -1,5 +1,5 @@
-import NavBar from "./NavBar"
-import Corpo from "./Corpo"
+import NavBar from "./NavBar";
+import Corpo from "./Corpo";
 
 export default function App() {
     return (
@@ -8,5 +8,5 @@ export default function App() {
             <Corpo />
         </div>
 
-    )
+    );
 }

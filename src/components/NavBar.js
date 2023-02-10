@@ -1,4 +1,4 @@
-export default function NavBar() { //essa não mexo mais
+export default function NavBar() {
     return (
         <div class="navbar">
             <div class="container">
@@ -24,5 +24,5 @@ export default function NavBar() { //essa não mexo mais
                 </div>
             </div>
         </div>
-    )
+    );
 }

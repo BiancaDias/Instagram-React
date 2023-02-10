@@ -5,7 +5,7 @@ export default function Sugestoes() {
         {imagem: "assets/img/razoesparaacreditar.svg",alt:"razoesparaacreditar"  ,nome: "razoesparaacreditar", motivo: "Novo no Instagram" },
         {imagem: "assets/img/adorable_animals.svg",alt: "adorable_animals",nome: "adorable_animals", motivo: "Segue você" },
         {imagem:"assets/img/smallcutecats.svg", alt:"smallcutecats",nome: "smallcutecats", motivo: "Segue você" }
-    ]
+    ];
 
     return (
         <div class="sugestoes">
@@ -16,7 +16,7 @@ export default function Sugestoes() {
             {sugestoes.map((s) => <Sugestao imagem={s.imagem} alt={s.alt} nome={s.nome} motivo={s.motivo} />)}
 
         </div>
-    )
+    );
 }
 
 function Sugestao(props) {
@@ -31,5 +31,5 @@ function Sugestao(props) {
             </div>
             <div class="seguir">Seguir</div>
         </div>
-    )
+    );
 }
