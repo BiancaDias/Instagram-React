@@ -64,7 +64,7 @@ function PostIndividual(props) {
             </div>
 
             <div class="conteudo">
-                <img onClick={curtirImg} data-test="post-image" src={props.imgPost} alt={props.altPost} />
+                <img onDoubleClick={curtirImg} data-test="post-image" src={props.imgPost} alt={props.altPost} />
             </div>
 
             <div class="fundo">
