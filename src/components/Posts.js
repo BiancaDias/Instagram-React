@@ -9,7 +9,7 @@ export default function Posts() {
     ]
     return (
 
-        <div data-test="post" class="posts">
+        <div class="posts">
             {ArrayDePosts.map((p) => <PostIndividual imgUsuario={p.imgUsuario} usuario={p.usuario} imgPost = {p.imgPost} altPost = {p.altPost} imgCurtidoPor = {p.imgCurtidoPor} nomeCurtidoPor = {p.nomeCurtidoPor} numCurtidas= {p.numCurtidas} />)}
         </div>
     )
@@ -52,7 +52,7 @@ function PostIndividual(props) {
     }
 
     return (
-        <div class="post">
+        <div data-test="post"  class="post">
             <div class="topo">
                 <div class="usuario">
                     <img src={props.imgUsuario} alt={props.usuario} />
